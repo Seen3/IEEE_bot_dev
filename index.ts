@@ -13,9 +13,10 @@ client.on('ready' , () => {
     console.log('Bot is online')
 })
 
-client.on("message" , msg => {
-    if(msg.content === 'hello') {
-      msg.reply("Hello World")
+client.on("messageCreate" , msg => {
+    let data=msg.content.split(' ');
+    if(data[0] === '/help') {
+      msg.reply(`${data[3]} with id ${data[1]} asked for help at ${data[2]}`)
     }
   })
 
